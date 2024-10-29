@@ -1,5 +1,5 @@
 # *Social media Video downloader*
-<p style="text-align:center">![Logo](Logo.png)</center>
+![Logo](Logo.png)
 
 ---
 ***Fuck every social media platform that doesn't allow free video downloading.***
