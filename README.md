@@ -14,6 +14,7 @@ This program in Python includes downloading videos from
 ***What do I need to have to use the program?***
 
 1. *[Python 3.13](https://www.python.org/downloads/release/python-3130/)*
+    *[Python Tutorial for MAC](https://docs.python.org/3/using/mac.html)*
 
 2. *YT-DLP, Run `pip install yt-dlp` in your Command Prompt.*
 

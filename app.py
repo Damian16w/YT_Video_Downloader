@@ -70,12 +70,11 @@ root.title("Social Media Video Downloader")
 root.geometry("650x700")
 root.configure(bg="#282828")
 
-# Set the application icon (ensure you have an icon.ico file in the same directory)
-root.iconbitmap(default='Logo.ico')  # Replace 'logo.ico' with the path to your icon
+root.iconbitmap(default='Logo.ico') 
 
 # Title Label
 title_label = tk.Label(
-    root, text="Social Media Video Downloader", font=("Arial", 30),
+    root, text="Social Media Video Downloader", font=("Roboto", 30),
     bg="#282828", fg="#FF0000", height=2
 )
 title_label.pack()
@@ -83,32 +82,32 @@ title_label.pack()
 # Platform Selection
 platform_frame = tk.Frame(root, bg="#282828")
 platform_frame.pack(pady=10)
-platform_label = tk.Label(platform_frame, text="Select Platform:", font=("Arial", 12), bg="#282828", fg="#ffffff")
+platform_label = tk.Label(platform_frame, text="Select Platform:", font=("Roboto", 12), bg="#282828", fg="#ffffff")
 platform_label.grid(row=0, column=0, padx=10)
 
 platform_var = tk.StringVar()
 platform_choices = ["YouTube", "Twitter", "Instagram", "TikTok", "Reddit"]
-platform_menu = ttk.Combobox(platform_frame, textvariable=platform_var, values=platform_choices, font=("Arial", 12), state="readonly")
+platform_menu = ttk.Combobox(platform_frame, textvariable=platform_var, values=platform_choices, font=("Roboto", 12), state="readonly")
 platform_menu.grid(row=0, column=1, padx=10)
 platform_menu.current(0)  # Default to YouTube
 
 # URL Entry
 url_frame = tk.Frame(root, bg="#282828", pady=5)
 url_frame.pack()
-url_label = tk.Label(url_frame, text="Video URL:", font=("Arial", 12), bg="#282828", fg="#ffffff")
+url_label = tk.Label(url_frame, text="Video URL:", font=("Roboto", 12), bg="#282828", fg="#ffffff")
 url_label.grid(row=0, column=0, padx=(20, 10))
-url_entry = tk.Entry(url_frame, width=40, font=("Arial", 14), bg="#333333", fg="#ffffff", insertbackground="#ffffff")
+url_entry = tk.Entry(url_frame, width=40, font=("Roboto", 14), bg="#333333", fg="#ffffff", insertbackground="#ffffff")
 url_entry.grid(row=0, column=1)
 
 # Output Directory
 dir_frame = tk.Frame(root, bg="#282828", pady=5)
 dir_frame.pack()
-dir_label = tk.Label(dir_frame, text="Output Directory:", font=("Arial", 12), bg="#282828", fg="#ffffff")
+dir_label = tk.Label(dir_frame, text="Output Directory:", font=("Roboto", 12), bg="#282828", fg="#ffffff")
 dir_label.grid(row=0, column=0, padx=(20, 10))
-dir_entry = tk.Entry(dir_frame, width=30, font=("Arial", 14), bg="#333333", fg="#ffffff", insertbackground="#ffffff")
+dir_entry = tk.Entry(dir_frame, width=30, font=("Roboto", 14), bg="#333333", fg="#ffffff", insertbackground="#ffffff")
 dir_entry.grid(row=0, column=1)
 browse_button = tk.Button(
-    dir_frame, text="Browse", command=browse_directory, font=("Arial", 12),
+    dir_frame, text="Browse", command=browse_directory, font=("Roboto", 12),
     bg="#FF0000", fg="#282828", relief="flat", padx=10, pady=2
 )
 browse_button.grid(row=0, column=2, padx=10)
@@ -116,14 +115,14 @@ browse_button.grid(row=0, column=2, padx=10)
 # Output File Name
 filename_frame = tk.Frame(root, bg="#282828", pady=5)
 filename_frame.pack()
-filename_label = tk.Label(filename_frame, text="Output File Name:", font=("Arial", 12), bg="#282828", fg="#ffffff")
+filename_label = tk.Label(filename_frame, text="Output File Name:", font=("Roboto", 12), bg="#282828", fg="#ffffff")
 filename_label.grid(row=0, column=0, padx=(20, 10))
-filename_entry = tk.Entry(filename_frame, width=40, font=("Arial", 14), bg="#333333", fg="#ffffff", insertbackground="#ffffff")
+filename_entry = tk.Entry(filename_frame, width=40, font=("Roboto", 14), bg="#333333", fg="#ffffff", insertbackground="#ffffff")
 filename_entry.grid(row=0, column=1)
 
 # Audio Only Option
 audio_var = tk.BooleanVar()
-audio_check = tk.Checkbutton(root, text="Download Audio Only", variable=audio_var, font=("Arial", 12), bg="#282828", fg="#ffffff", selectcolor="#282828")
+audio_check = tk.Checkbutton(root, text="Download Audio Only", variable=audio_var, font=("Roboto", 12), bg="#282828", fg="#ffffff", selectcolor="#282828")
 audio_check.pack(pady=10)
 
 # Progress Bar
@@ -133,7 +132,7 @@ progress_bar.pack(pady=20)
 
 # Download Button
 download_button = tk.Button(
-    root, text="Download", command=start_download, font=("Arial", 14),
+    root, text="Download", command=start_download, font=("Roboto", 14),
     bg="#FF0000", fg="#282828", relief="flat", padx=10, pady=5
 )
 download_button.pack(pady=10)
