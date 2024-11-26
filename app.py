@@ -127,7 +127,7 @@ resolution_label = tk.Label(resolution_frame, text="Select Resolution:", font=("
 resolution_label.grid(row=0, column=0, padx=(20, 10))
 
 resolution_var = tk.StringVar()
-resolution_choices = ["Best", "2160", "1440", "1080", "720", "480", "360", "240", "144"]
+resolution_choices = ["Best", "2160p", "1440p", "1080p", "720p", "480p", "360p", "240p", "144p"]
 resolution_menu = ttk.Combobox(resolution_frame, textvariable=resolution_var, values=resolution_choices, font=("Roboto", 12), state="readonly")
 resolution_menu.grid(row=0, column=1, padx=10)
 resolution_menu.current(0)
