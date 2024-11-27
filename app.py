@@ -4,6 +4,13 @@ import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 import subprocess
 
+def update_yt_dlp():
+    try:
+        subprocess.run([r"python3 -m pip install --upgrade yt-dlp"], shell=True, check=True)
+        print("yt-dlp updated successfully!")
+    except subprocess.CalledProcessError:
+        print("Error updating yt-dlp.")
+
 def download_content(url, output_directory, output_filename, platform, resolution, audio_only=False):
     output_path = os.path.join(output_directory, f"{output_filename}.%(ext)s")
     
@@ -22,10 +29,10 @@ def download_content(url, output_directory, output_filename, platform, resolutio
             }],
         })
     else:
-        if resolution == "Best":
-            ydl_opts.update({'format': 'best'})
-        else:
+        if platform == "YouTube" and resolution != "Best":
             ydl_opts.update({'format': f'bestvideo[height<={resolution}]+bestaudio/best'})
+        else:
+            ydl_opts.update({'format': 'best'})
 
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -66,6 +73,9 @@ def start_download():
         messagebox.showwarning("Warning", "Please fill in all fields.")
         return
 
+    # Update yt-dlp before starting the download
+    update_yt_dlp()
+
     download_content(url, output_directory, output_filename, platform, resolution, audio_only)
 
 root = tk.Tk()
@@ -90,7 +100,7 @@ platform_label = tk.Label(platform_frame, text="Select Platform:", font=("Roboto
 platform_label.grid(row=0, column=0, padx=10)
 
 platform_var = tk.StringVar()
-platform_choices = ["YouTube", "Twitter", "Instagram", "TikTok", "Reddit"]
+platform_choices = ["YouTube", "Twitter", "Instagram", "TikTok", "Reddit", "Facebook"]
 platform_menu = ttk.Combobox(platform_frame, textvariable=platform_var, values=platform_choices, font=("Roboto", 12), state="readonly")
 platform_menu.grid(row=0, column=1, padx=10)
 platform_menu.current(0)
