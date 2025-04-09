@@ -18,11 +18,6 @@ def download_content(url, output_directory, output_filename, platform, resolutio
     if audio_only:
         ydl_opts.update({
             'format': 'bestaudio/best',
-            'postprocessors': [{
-                'key': 'FFmpegExtractAudio',
-                'preferredcodec': 'mp3',
-                'preferredquality': '192',
-            }],
         })
     else:
         if resolution == "Best":
@@ -30,7 +25,7 @@ def download_content(url, output_directory, output_filename, platform, resolutio
         else:
             # Try the requested resolution first, then fallback
             requested_height = int(resolution[:-1])
-            ydl_opts['format'] = f'bv*[height<={requested_height}]+ba/b[height<={requested_height}] / wv*+ba/w'
+            ydl_opts['format'] = f'best[height<={requested_height}]'
             ydl_opts['format_sort'] = [f'res:{requested_height}', 'res']
 
     try:
@@ -129,6 +124,11 @@ def start_download():
 # Create main window
 root = tk.Tk()
 root.title("Social Media Video Downloader")
+icon_path = os.path.join(os.path.dirname(__file__), "Logo.ico")
+if os.path.exists(icon_path):
+    root.iconbitmap(icon_path)
+else:
+    print("Icon not found:", icon_path)
 root.geometry("650x800")
 root.configure(bg="#282828")
 
